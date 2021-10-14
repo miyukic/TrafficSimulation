@@ -1,0 +1,6 @@
+*.o
+*.swp
+*.out
+compile_commands.json
+.cache/
+tsim
