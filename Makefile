@@ -1,5 +1,5 @@
 TARGET = tsim
-CXX = clang++-11
+CXX = clang++-12
 OBJS = main.o
 CXXFLAGS = -Wall -Wextra -std=c++20 -fsanitize=leak 
 LDFLAGS = 

@@ -2,6 +2,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#incluce "traffic"
 
 namespace myk {
 
@@ -13,11 +14,13 @@ class TrafficMember {
 class Car : public TrafficMember {
 };
 
+
 class RoadParts {
   public:
       std::string nama{"no name"};
       uint32_t id{0};
 };
+
 
 //道路
 class RoadBase : public RoadParts {
@@ -44,7 +47,7 @@ class TrafficLight : public RoadParts {
         length
     };
 
-    Status status{Status::red}; 
+    Status status{Status::red};
 
     TrafficLight(Status status) : status{status} {
     }
@@ -52,13 +55,21 @@ class TrafficLight : public RoadParts {
 };
 
 //道路の通過点
-class RoadNode : public RoadParts{
+class RoadNode : public RoadParts {
 
   public:
     double xPoint, yPoint = 0;
     std::unique_ptr<TrafficLight*> trafficLight{};
 
+    std::vector<RoadBase> connectedRoadvec{};
+
+    RoadNode() {};
     RoadNode(double x, double y) : xPoint{x}, yPoint{y} { }
+
+    RoadBase& connect(RoadBase& road) {
+        connectedRoadvec.push_back(road);
+        return road;
+    }
 
 };
 
@@ -67,15 +78,15 @@ class InterSection : public RoadNode {
   public:
 };
 
-class AssembledRoad {
-  public:
-      
-};
 
 } // namespace myk end.
 
 
+using namespace myk;
+
 int main() {
-    myk::TrafficLight tl{myk::TrafficLight::Status::red};
+    std::unique_ptr<RoadNode> nodeN = std::make_unique<RoadNode>(RoadNode());
+    std::unique_ptr<RoadNode> nodeM = std::make_unique<RoadNode>(RoadNode());
+    RoadBase &road = nodeN->connect(RoadBase(30, 5));
     return 0;
 }
