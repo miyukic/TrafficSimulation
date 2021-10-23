@@ -6,19 +6,19 @@ using Myk;
 namespace Myk {
 
 class TrafficMember {
+    public int speed = 0;
+    public uint id = 0;
 }
 
 
 //車
 class Car : TrafficMember {
-    public int speed = 0;
-    public int id = 0;
 }
 
 
 class RoadParts {
-      public string namea = "no name";
-      uint id = 0;
+    public string namea = "no name";
+    uint id = 0;
 }
 
 
@@ -95,17 +95,14 @@ class RoadNode : RoadParts {
 class InterSection : RoadNode { }
 
 
-} // namespace myk end.
+} // namespace Myk end.
 
 
 class MainClass {
     public static void Main(string[] args) {
         Console.WriteLine("MainClass.Main 開始");
-        //std::unique_ptr<RoadNode> nodeN = std::make_unique<RoadNode>(RoadNode());
         RoadNode nodeN = new RoadNode();
-        //std::unique_ptr<RoadNode> nodeM = std::make_unique<RoadNode>(RoadNode());
         RoadNode nodeM = new RoadNode();
-        //RoadBase &road = nodeN->connect(RoadBase(30, 5));
         RoadBase road = nodeN.Connect(new RoadBase(30, 5));
         nodeM.Connect(road);
         Console.WriteLine("MainClass.Main 終了");
