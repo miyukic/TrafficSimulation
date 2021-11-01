@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Myk;
+using NL1;
 
 
 namespace Myk {
@@ -100,13 +101,31 @@ class InterSection : RoadNode { }
 
 class MainClass {
     public static void Main(string[] args) {
-        Console.WriteLine("MainClass.Main 開始");
-        RoadNode nodeN = new RoadNode();
-        RoadNode nodeM = new RoadNode();
-        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
-        nodeM.Connect(road);
+//        Console.WriteLine("MainClass.Main 開始");
+//        RoadNode nodeN = new RoadNode();
+//        RoadNode nodeM = new RoadNode();
+//        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
+//        nodeM.Connect(road);
         Console.WriteLine("MainClass.Main 終了");
         return;
     }
 }
 
+//namespace NL1 {
+    //namespace NL2 {
+    namespace NL1.NL2 {
+        class Foo {
+            public Foo() {
+                Console.WriteLine("NL1::NL2::Foo#Foo");
+            }
+        }
+    }
+//}
+
+namespace NL2 {
+    class Foo {
+        public Foo() {
+            Console.WriteLine("NL2::Foo#Foo");
+        }
+    }
+}
