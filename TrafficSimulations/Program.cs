@@ -26,9 +26,9 @@ class RoadParts {
 //道路
 class RoadBase : RoadParts {
 
-    public double       length          = 0.0D;
-    public double       width           = 0.0D;
-    protected ushort    numberOfMouths  = 2;
+    public double       length { get; set; }   = 0.0D; //単位(m)
+    public double       width  { get; set; }   = 0.0D; //単位(m)
+    protected ushort    numberOfMouths { get; } = 2;
     private ushort      mouthsUsed      = 0;
 
     public RoadBase(double length, double width) {
@@ -43,6 +43,10 @@ class RoadBase : RoadParts {
             return false;
         }
     }
+
+    public bool ConnectRoad(RoadBase road) {
+        if (!Connectable())  return false;
+    } 
 
     public void CountUp() {
         mouthsUsed++;
@@ -95,8 +99,16 @@ class RoadNode : RoadParts {
 //道路の交差点
 class InterSection : RoadNode { }
 
+class RoadBuild {
+    public static RoadBase Start() {
+        RoadNode nodestart = new RoadNode();
+        RoadBase road = nodestart.Connect(new RoadBase(50, 5));
+        return road;
+    }
+}
 
 } // namespace Myk end.
+
 
 
 class MainClass {
@@ -106,6 +118,7 @@ class MainClass {
 //        RoadNode nodeM = new RoadNode();
 //        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
 //        nodeM.Connect(road);
+        var a = RoadBuild.Start()
         Console.WriteLine("MainClass.Main 終了");
         return;
     }

@@ -2,7 +2,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-#incluce "traffic"
 
 namespace myk {
 
@@ -87,6 +86,7 @@ using namespace myk;
 int main() {
     std::unique_ptr<RoadNode> nodeN = std::make_unique<RoadNode>(RoadNode());
     std::unique_ptr<RoadNode> nodeM = std::make_unique<RoadNode>(RoadNode());
-    RoadBase &road = nodeN->connect(RoadBase(30, 5));
+    //RoadBase &road = nodeN->connect(RoadBase(30, 5));
+    std::cout << sizeof(a) << std::endl;
     return 0;
 }
