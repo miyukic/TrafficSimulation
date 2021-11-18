@@ -110,18 +110,37 @@ class RoadBuild {
 } // namespace Myk end.
 
 
+class Test {
+    public int count = 0;
+
+    public void set(Func<int, int> f) {
+        f(count);
+    }
+
+    public void set(int val) {
+        count = val;
+    }
+
+
+}
 
 class MainClass {
+
     public static void Main(string[] args) {
 //        Console.WriteLine("MainClass.Main 開始");
 //        RoadNode nodeN = new RoadNode();
 //        RoadNode nodeM = new RoadNode();
 //        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
 //        nodeM.Connect(road);
-        var a = RoadBuild.Start()
+        //var a = RoadBuild.Start()
+        Test t = new Test();
+        t.set(t.count + 1); //即時評価
+        t.set( x =>  x + 1 ); //遅延評価
+        
         Console.WriteLine("MainClass.Main 終了");
         return;
     }
+
 }
 
 //namespace NL1 {
