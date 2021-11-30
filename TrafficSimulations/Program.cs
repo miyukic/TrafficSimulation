@@ -36,6 +36,7 @@ class RoadBase : RoadParts {
         width = width;
     }
 
+    //道路を接続可能かどうか
     public virtual bool Connectable() {
         if (numberOfMouths > mouthsUsed) {
             return true;
@@ -44,8 +45,10 @@ class RoadBase : RoadParts {
         }
     }
 
+    //道路を接続する
     public bool ConnectRoad(RoadBase road) {
         if (!Connectable())  return false;
+        return true;
     } 
 
     public void CountUp() {
@@ -133,9 +136,9 @@ class MainClass {
 //        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
 //        nodeM.Connect(road);
         //var a = RoadBuild.Start()
-        Test t = new Test();
-        t.set(t.count + 1); //即時評価
-        t.set( x =>  x + 1 ); //遅延評価
+//        Test t = new Test();
+//        t.set(t.count + 1); //即時評価
+//        t.set( x =>  x + 1 ); //遅延評価
         
         Console.WriteLine("MainClass.Main 終了");
         return;
