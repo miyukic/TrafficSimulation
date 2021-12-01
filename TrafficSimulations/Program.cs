@@ -131,11 +131,12 @@ class MainClass {
 
     public static void Main(string[] args) {
 //        Console.WriteLine("MainClass.Main 開始");
-//        RoadNode nodeN = new RoadNode();
-//        RoadNode nodeM = new RoadNode();
-//        RoadBase road = nodeN.Connect(new RoadBase(30, 5));
-//        nodeM.Connect(road);
+          RoadNode nodeN = new RoadNode();
+          RoadNode nodeM = new RoadNode();
+          RoadBase road = nodeN.Connect(new RoadBase(30, 5));
+          nodeM.Connect(road);
         //var a = RoadBuild.Start()
+
 //        Test t = new Test();
 //        t.set(t.count + 1); //即時評価
 //        t.set( x =>  x + 1 ); //遅延評価
